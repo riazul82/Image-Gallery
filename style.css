@@ -312,7 +312,7 @@ body {
 }
 
 @media screen and (max-width: 540px) {
-    .lightbox {
+    .lightbox-content {
         height: 380px;
     }
 }

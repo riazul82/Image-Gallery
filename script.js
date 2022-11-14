@@ -64,46 +64,26 @@ for (let i = 0; i < filterContents.length; i++) {
 
         // slide left
         leftArrow.onclick = () => {
-            slideIndex--;
-
-            if (slideIndex < 0) {
-                slideIndex = filterContents.length - 1;
-            }
-
+            slideIndex = (slideIndex + filterContents.length - 1) % filterContents.length;
             updateLightboxContent(slideIndex);
         }
 
 
         // slide right
         rightArrow.onclick = () => {
-            slideIndex++;
-
-            if (slideIndex >= filterContents.length) {
-                slideIndex = 0;
-            }
-
+            slideIndex = (slideIndex + 1) % filterContents.length;
             updateLightboxContent(slideIndex);
         }
 
         // slide when arrow key down
         document.onkeydown = (event) => {
             if (event.keyCode === 37) {
-                slideIndex--;
-
-                if (slideIndex < 0) {
-                    slideIndex = filterContents.length - 1;
-                }
-
+                slideIndex = (slideIndex + filterContents.length - 1) % filterContents.length;
                 updateLightboxContent(slideIndex);
             }
 
             if (event.keyCode === 39) {
-                slideIndex++;
-
-                if (slideIndex >= filterContents.length) {
-                    slideIndex = 0;
-                }
-
+                slideIndex = (slideIndex + 1) % filterContents.length;
                 updateLightboxContent(slideIndex);
             }
         }
